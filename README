@@ -1,0 +1,44 @@
+Internet of Things 
+Challenge 3
+
+2019 Resit
+Edgar Burchell 	Student ID: 16018165  
+
+------------------------------------------------------------------------------------------------------------------
+Documentation of Applicaiton
+
+The application works by using the URAT Libary within the Microbit, by using this it is able to interprit messages sent via a connecting application which it is able to connect to. Along with this it utilises Eddystone beacon technology to transmit the UWE website address
+
+The application functions in the following: 
+
+The config enables the Bluetooth connection and sets the connection type to '1' so it doesn't need verifying.
+Next it gernates a notifier to know if it is connected to something or not. Which scrolls accross the screen.
+
+After this is it able to recive messages from the connected device by using the uart commands and by comparing the final character to a preset string which will then terminate the message and print it on the mircobit. 
+It does this to stop reading the message and break out of a permament read command.
+
+Then once it is disconnected it will print this and go dormant until a connection is found again.
+
+The application has a verifier command which on the press of Button A will send a message to the connected to device and print a confirmation of connection on the microbit.
+
+------------------------------------------------------------------------------------------------------------------
+To build the program simply ensure that inside a folder you have the config.json and module.json files and then in another folder called source have the main.cpp file.
+
+Once there open up terminal and navigate to the foldering using the command "cd foldername"
+*Note that if the folder is not connected to home cd will need the full path of the file location not just its name
+
+Once in the folder with terminal correctly linking the correct compiler, to do this simply type:
+
+yt target bbc-microbit-classic-gcc
+
+Once this is done type
+
+yt build 
+
+And it should build the file for you. If all was successful then you should find 3 more folders called build, yotta_module and yotta_targets.
+
+Follow the folder path: build -> bbc-microbit-classic-gcc -> source 
+
+Inside this folder will be a file called "iot-example-combine.hex"
+
+Plug in your Microbit and copy this file to the microbit itself. Once it is copied the Microbit will restart and display the message "Go" on the screen.
